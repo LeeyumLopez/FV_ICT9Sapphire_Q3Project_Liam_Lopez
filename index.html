@@ -48,7 +48,7 @@
 <br><br>
 <center>
 	<form>
-		 <select class="form-select" id="who">
+		 <select class="form-select" id="from">
 		  <option value="none">From where?</option> 
 		  <option value=" 27">Taft Ave.</option> <!-- based on research -->
 		  <option value=" 21.59">North Ave.</option> <!-- based on research -->
@@ -64,19 +64,23 @@
 <br><br>
 <center>
 	<form>
-		 <select class="form-select" id="who">
-		  <option value="none">Who are you coming with</option> 
-		  <option value=" 27">Children under 15</option> <!-- based on research -->
-		  <option value=" 21.59">Adult</option> <!-- based on research -->
+		 <select class="form-select" id="to">
+		  <option value="none">Where are you going to</option> 
+		  <option value=" 27">Taft Ave.</option> <!-- based on research -->
+		  <option value=" 21.59">North Ave.</option> <!-- based on research -->
 		</select>
 		<br><br>
 
-	<button type="Submit" class="btn btn-warning" onclick="Submit2()">Submit Second form
+	<button type="Submit" class="btn btn-warning" onclick="PriceCheck()">Check Price
 	</button>
 	</form>
 </center>
 <script>
-	function 
+	function PriceCheck(){
+		var from = document.getElementById("from").value;
+		var to = document.getElementById("to").value;
+		var 
+	}
 </script>
 
 </body>
