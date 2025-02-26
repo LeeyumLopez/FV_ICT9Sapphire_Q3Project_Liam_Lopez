@@ -75,8 +75,35 @@
 	</button>
 	</form>
 </center>
+
+	<h3><label> Where to? </label></h3>
+	<br><br>
+<center>
+	<form>
+		 <select class="form-select" id="from">
+		  <option value="0">North Ave.</option> 
+		  <option value="13">Quezon Ave.</option> <!-- based on research -->
+		  <option value="13">GMA Kamuning</option>
+		  <option value="16">Araneta - Cuubao</option>
+		  <option value="16">Santolan - Annapolis</option>
+		  <option value="20">Ortigas</option>
+		  <option value="20">Shaw Blvd.</option>
+		  <option value="20">Boni</option>
+		  <option value="">Guadalupe</option>
+		  <option value="">Buendia</option>
+		  <option value="">Ayala</option>
+		  <option value="">Magallanes</option>
+		  <option value="">Taft Ave</option>
+		</select>
+		<br><br>
+
+	<button type="Submit" class="btn btn-warning" onclick="PriceCheck()">Check The Price
+	</button>
+	</form>
+</center>
 <script>
 	function PriceCheck(){
+		var regFare = 13;
 		var from = document.getElementById("from").value;
 		var to = document.getElementById("to").value;
 		var child = Number(when) + Number(to); child.tofixed(0.2)
