@@ -140,35 +140,28 @@
 <footer style="background-color: black; color: white; text-align: center; padding: 10px;">
     Made by: Liam & Mohammad
 </footer>
+<footer style="background-color: black; color: white;">Sources:<a href="https://docs.google.com/document/d/1T-zfWvGzN2QS3iniUtMKOsnZPqBi_bb_FpVzRhh6rEM/edit?tab=t.0"> here</a></footer>
+
 
 <script>
-    function PriceCheck() {
-        let fromValue = parseInt(document.getElementById("from").value);
-        let toValue = parseInt(document.getElementById("to").value);
-        let fareType = document.getElementById("fareType").value;
+function PriceCheck() {
+    let fromValue = parseInt(document.getElementById("from").value);
+    let toValue = parseInt(document.getElementById("to").value);
+    let fareType = document.getElementById("fareType").value;
 
-        if (isNaN(fromValue) || isNaN(toValue)) {
-            alert("Please select both departure and destination stations.");
-            return;
-        }
+    let validInput = !isNaN(fromValue) && !isNaN(toValue);
+    validInput || alert("Please select both departure and destination stations.");
 
-        if (fromValue === toValue) {
-            document.getElementById("farePrice").innerText = "₱0.00"; // No fare if same station
-            return;
-        }
+    let distance = Math.abs(toValue - fromValue);
+    let baseFare = 13.00;
+    let perStationFare = 2.50;
+    let totalFare = baseFare + (distance / 2 * perStationFare);
 
-        const baseFare = 13.00; // Minimum fare
-        const perStationFare = 2.50; // Incremental fare per station
-
-        let distance = Math.abs(toValue - fromValue);
-        let totalFare = baseFare + (distance / 2 * perStationFare); // Normalized fare calculation
-
-        if (fareType === "discount") {
-            totalFare *= 0.80; // Apply 20% discount
-        }
-
-        document.getElementById("farePrice").innerText = "₱" + totalFare.toFixed(2);
-    }
+    totalFare = (fareType === "discount" ? totalFare * 0.80 : totalFare);
+    totalFare = (fromValue === toValue ? 0 : totalFare);
+    
+    validInput && (document.getElementById("farePrice").innerText = "₱" + totalFare.toFixed(2));
+}
 </script>
 </body>
 </html>
